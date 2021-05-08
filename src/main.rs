@@ -2,6 +2,8 @@
 
 mod record;
 mod header;
+mod field_definition;
+
 mod util{pub mod file_ops;}
 
 use std::error::Error;
@@ -23,7 +25,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     let mut buf_reader = BufReader::new(file);
 
     dbg!(Header::load(&mut buf_reader));
-
+    dbg!(Record::load(&mut buf_reader));
     dbg!(Record::load(&mut buf_reader));
 
     Ok(())
